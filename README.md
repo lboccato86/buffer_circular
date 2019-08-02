@@ -1,46 +1,48 @@
-# Um pequeno somador
+# Buffer Circular
 
-Esta é uma tarefa-template, que deve ser modificada para ser convertida em
-outras atividades. Aqui, fica o enunciado da tarefa, ou seja, sua descrição, com
-instruções claras sobre o problema que deve ser resolvido. Esta tarefa consiste
-em fazer um somador. Ele deverá receber uma linha de texto contendo dois números
-inteiros. Essa linha se encerra com caractere fim de linha `\n`. O programa
-deverá imprimir na saída padrão a soma desses dois números
+Esta tarefa consiste em implementar as funções relacionadas a um buffer
+circular.
 
-## Como fazer uma outra tarefa usando este template
-1. Crie um repositório vazio no Github (sem inicializar o readme nem a licença)
-   com o nome da sua tarefa usando a interface web. Vamos chamar esse
-   repositório com o nome fantasma de `foobar`.
+Se você precisa entender o que é um buffer circular, por favor, veja o artigo
+sobre
+[buffer circular na Wikipedia](https://en.wikipedia.org/wiki/Circular_buffer),
+que tem uma explicação bastante didática sobre o assunto.
 
-1. Faça um clone deste repositório para um diretório com o nome de sua tarefa.
-   Se sua tarefa se chama foobar, então a linha de comando é:
-   `git clone https://github.com/Beethoven-ED/template_unit_test.git foobar`
+## Outras anotações
+O buffer circular que implementaremos tem obrigatoriamente tamanho 5, isto é,
+cabem 5 elementos nele.
 
-1. Desvincule sua cópia local deste repositório:
-   `git remote remove origin`
+O programa receberá uma cadeia de caracteres, continuamente. Se o caractere
+recebido for um dígito (0, 1, 2, 3, 4, 5, 6, 7, 8, ou 9), ele deverá ser
+adicionado ao buffer. Se o caractere for uma letra (a-z ou A-Z), o elemento mais
+antigo do buffer deverá ser removido. Se for um fim de linha (`\n`), o programa
+deve encerrar.
 
-1. Vincule sua cópia local ao seu repositório no github:
-   `git remote add origin https://github.com/seu_username/foobar.git`
+Depois de qualquer adição ou remoção de elemento do buffer, seu conteúdo deverá
+ser impresso inteiramente, do elemento mais antigo para o mais recente, com
+espaço entre os elementos e um fim de linha (`\n`) ao final.
 
-1. Faça as modificações necessárias no código. Use `git add` e `git commit`
-   sempre que necessário. Lembre-se de:
-   * Modificar o enunciado
-   * Adicionar testes de unidade
-   * Adicionar um programa-template, se achar necessário.
-   * Testar se `make` e `make test` estão funcionando adequadamente.
+Tentativas de inserção em buffer cheio ou remoções em buffer vazio devem ser
+ignoradas.
 
-1. Quando terminar, envie suas modificações ao repositório: `git push
-   --set-upstream origin master` (a flag `--set-upstream origin master` só será
-   necessária da primeira vez que fizer o `push`).
+## Exemplo
+Entrada: `a123456bZf789\n`
 
-1. Verifique se as modificações estão todas no Github, no endereço correto.
+Saída:
+`\n
+ 1\n
+ 1 2\n
+ 1 2 3\n
+ 1 2 3 4\n
+ 1 2 3 4 5\n
+ 1 2 3 4 5\n
+ 2 3 4 5\n
+ 3 4 5\n
+ 4 5\n
+ 4 5 7\n
+ 4 5 7 8\n
+ 4 5 7 8 9\n`
 
-## Exemplos
-
-Entrada | Saida
-------- | -----
-`1 2` | `3`
-`100 1` | `101`
 
 
 ## Instruções adicionais
