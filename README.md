@@ -26,22 +26,39 @@ Tentativas de inserção em buffer cheio ou remoções em buffer vazio devem ser
 ignoradas.
 
 ## Exemplo
-Entrada: `a123456bZf789\n`
+Entrada:
+
+`a123456bZf789\n`
+
 
 Saída:
+
 `\n
- 1\n
- 1 2\n
- 1 2 3\n
- 1 2 3 4\n
- 1 2 3 4 5\n
- 1 2 3 4 5\n
- 2 3 4 5\n
- 3 4 5\n
- 4 5\n
- 4 5 7\n
- 4 5 7 8\n
- 4 5 7 8 9\n`
+
+1\n
+
+1 2\n
+
+1 2 3\n
+
+1 2 3 4\n
+
+1 2 3 4 5\n
+
+1 2 3 4 5\n
+
+2 3 4 5\n
+
+3 4 5\n
+
+4 5\n
+
+4 5 7\n
+
+4 5 7 8\n
+
+4 5 7 8 9\n`
+
 
 
 
